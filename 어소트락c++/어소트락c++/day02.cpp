@@ -1,4 +1,5 @@
 #include <iostream>
+#include <time.h>
 
 using namespace std;
 
@@ -75,6 +76,73 @@ int main() {
 	cout << ++iNumber << endl;	//13
 	cout << iNumber++ << endl;	//13, 출력 먼저 해놓고 증가시키기
 	cout << iNumber << endl;	//14
+
+	/*
+	분기문에는 크게 2가지 종류가 있다. 
+	if문: 조건을 체크해주는 기능.
+	형태: if(조건식) {}(코드블럭)
+	if문은 조건식이 true가 될 경우 코드블럭 내의 코드가 동작.
+	false일 경우에는 동작하지 않음. 
+	*/
+	if (true) {
+		cout << "if문 조건식이 true입니다." << endl;
+	}
+
+	//버프가 있는지 확인
+	if ((iBuf & iAttack) != 0) {
+		cout << "Attack 버프가 있습니다." << endl;
+	}
+
+	//if문 아래에 들어갈 코드가 1줄일 경우 {}(코드블럭)을 생략할 수 있다.
+	if ((iBuf & iArmor) != 0)
+		cout << "iArmor 버프가 있습니다." << endl;
+
+	if ((iBuf & iHP) != 0) 
+		cout << "HP 버프가 있습니다." << endl;
+	
+	if ((iBuf & iMP) != 0) 
+		cout << "iMP 버프가 있습니다." << endl;
+	
+	if ((iBuf & iCritical) != 0) 
+		cout << "iCritical 버프가 있습니다." << endl;
+
+	/*
+	else: if문과 반드시 같이 사용해야 한다.
+	if문 조건이 false일 경우 else가 있다면 else 구문 안의 코드가 동작된다.
+	
+	else if : if문과 반드시 같이 사용해야 한다.
+	if문 아래 와야 하고 else보다는 위에 있어야 한다.
+	else if는 자신의 위에 있는 조건식이 false일 경우 다음 else if의 조건식을 체크한다.
+	else if는 몇개든 사용이 가능하다.
+	*/
+	if (false)
+		cout << "if문 조건이 true입니다." << endl;
+	else
+		cout << "if문 조건이 false입니다." << endl;
+
+	cout << "숫자를 입력하세요" << endl;
+	cin >> iNumber;
+
+	if (10 <= iNumber && iNumber <= 20)
+		cout << "10 ~ 20 사이의 숫자입니다." << endl;
+	else if (21 <= iNumber && iNumber <= 30)
+		cout << "21 ~ 30 사이의 숫자입니다." << endl;
+	else if (31 <= iNumber && iNumber <= 40)
+		cout << "31 ~ 40 사이의 숫자입니다." << endl;
+	else
+		cout << "그 외의 숫자입니다." << endl;
+
+	//난수 발생
+	srand((unsigned int)time(0));
+
+	cout << rand() << endl;
+	cout << rand() << endl;
+	cout << rand() << endl;
+	//0 ~ 99구하기. 어떤 수를 100으로 나누었을 때 나올 수 있는 수는 무조건 0~99임
+	cout << (rand() % 100) << endl;  
+	//100 ~ 200구하기
+	cout << (rand() % 101 + 100) << endl;
+
 
 	return 0;
 }
